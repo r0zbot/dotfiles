@@ -53,5 +53,6 @@ source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 
 source "$HOME/.homesick/repos/homeshick/completions/homeshick-completion.bash"
 
-homeshick refresh --quiet
+source /etc/bash_completion
 
+homeshick refresh --quiet
