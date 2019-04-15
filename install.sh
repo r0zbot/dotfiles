@@ -30,6 +30,7 @@ fi
 echo -n "Clone ssh keys? [Y/n]"
 read answer
 if [ "$answer" == "${answer#[Yy]}" ] ;then
+    git clone https://github.com/r0zbot/keys.git && rm -rf keys
     homeshick clone r0zbot/keys
     chmod 600 ~/.ssh/*
 fi
