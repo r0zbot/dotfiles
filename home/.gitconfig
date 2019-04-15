@@ -1,0 +1,7 @@
+[color]
+	ui = auto
+[user]
+	email = r0zbot@users.noreply.github.com
+	name = r0zbot
+[push]
+	default = matching
