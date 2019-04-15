@@ -39,9 +39,11 @@ UCCOLOR=$bldgrn               # user's color
 
 if [[ $(hostname) == "r0zmain" ]]; then
     hostcolor=$txtcyn
-elif [[ $(hostname) == "imesec" ]]; then
+elif [[ $(hostname) == "imesec.ime.usp.br" ]]; then
     hostcolor=$bldylw
+elif [[ $(hostname) == "osmc" ]]; then
+    hostcolor=$bldpur
 fi
 
 export PS1="[\[$UCCOLOR\]\u\[$bldwht\]@\[$txtcyn\]\h\[$bldwht\] \[$bldblu\]\w\[$bldwht\]]\[$bldwht\]
-\\$\[$bldwht\] "
+\\$\[$txtwht\] "
