@@ -26,6 +26,7 @@ export EDITOR=emacs
 [ -f ~/.ps1.bash ] && source ~/.ps1.bash
 [ -f ~/.bash_aliases ] && source ~/.bash_aliases
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+[ -f /etc/profile.d/bash_completion.sh ] && source /etc/profile.d/bash_completion.sh
 
 export FZF_DEFAULT_COMMAND="find . -type f ! -path '*.homesick/repos/homeshick*' ! -path '*.themes*' ! -path '*.cinnamon*' ! -path '*.cache*' ! -path '*.git/*'"
 export FZF_DEFAULT_OPTS="--height 55% --reverse --border --inline-info"
@@ -52,7 +53,5 @@ commit(){
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 
 source "$HOME/.homesick/repos/homeshick/completions/homeshick-completion.bash"
-
-source /etc/bash_completion
 
 homeshick refresh --quiet
