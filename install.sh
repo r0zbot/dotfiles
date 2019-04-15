@@ -27,4 +27,11 @@ if [ "$answer" == "${answer#[Yy]}" ] ;then
 
 fi
 
+echo -n "Clone ssh keys? [Y/n]"
+read answer
+if [ "$answer" == "${answer#[Yy]}" ] ;then
+    homeshick clone r0zbot/keys
+    chmod 600 ~/.ssh/*
+fi
+
 exec bash
