@@ -33,6 +33,9 @@ if [ "$answer" == "${answer#[Yy]}" ] ;then
     git clone https://github.com/r0zbot/keys.git && rm -rf keys
     homeshick clone r0zbot/keys
     chmod 600 ~/.ssh/*
+    chmod 700 ~/.ssh
+    chmod -R u-w ~/.homesick
+    chmod -R o-w ~/.homesick
 fi
 
 exec bash
