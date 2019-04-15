@@ -13,7 +13,19 @@ echo "Cloning dotfiles"
 
 homeshick clone r0zbot/dotfiles
 
-echo "Installing fzf"
-~/.fzf/install
+echo -n "Install bat to ~/bin? [Y/n]"
+read answer
+if [ "$answer" == "${answer#[Yy]}" ] ;then
+    mkdir tmpbat
+    mkdir -p ~/bin
+    cd tmpbat
+    wget https://github.com/sharkdp/bat/releases/download/v0.10.0/bat-v0.10.0-x86_64-unknown-linux-gnu.tar.gz
+    tar xzf bat-v0.10.0-x86_64-unknown-linux-gnu.tar.gz
+    mv bat-v0.10.0-x86_64-unknown-linux-gnu/bat ~/bin
+    cd ..
+    rm -rf tmpbat
+
+fi
+
 
 exec bash
