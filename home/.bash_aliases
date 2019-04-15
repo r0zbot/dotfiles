@@ -12,6 +12,7 @@ alias egrep='egrep --color=auto'
 
 alias ll='ls -lah'
 alias cls='clear'
+alias cat='bat'
 
 
 function extract()      # Handy Extract Program
