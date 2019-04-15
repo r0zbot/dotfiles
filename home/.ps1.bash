@@ -43,7 +43,9 @@ elif [[ $(hostname) == "imesec.ime.usp.br" ]]; then
     hostcolor=$bldylw
 elif [[ $(hostname) == "osmc" ]]; then
     hostcolor=$bldpur
+else
+    hostcolor=$txtwht
 fi
 
-export PS1="[\[$UCCOLOR\]\u\[$bldwht\]@\[$txtcyn\]\h\[$bldwht\] \[$bldblu\]\w\[$bldwht\]]\[$bldwht\]
+export PS1="[\[$UCCOLOR\]\u\[$bldwht\]@\[$hostcolor\]\h\[$bldwht\] \[$bldblu\]\w\[$bldwht\]]\[$bldwht\]
 \\$\[$txtwht\] "
