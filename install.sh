@@ -9,8 +9,11 @@ printf '\nsource "$HOME/.homesick/repos/homeshick/completions/homeshick-completi
 
 source ~/.bashrc
 
-echo "Cloning homeshick"
+echo "Cloning dotfiles"
 
 homeshick clone r0zbot/dotfiles
+
+echo "Installing fzf"
+~/.fzf/install
 
 exec bash
