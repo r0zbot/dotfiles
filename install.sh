@@ -15,7 +15,7 @@ homeshick clone r0zbot/dotfiles
 
 echo -n "Install bat to ~/bin? [Y/n]"
 read answer
-if [ "$answer" == "${answer#[Yy]}" ] ;then
+if [ "$answer" != "${answer#[Yy]}" ] ;then
     mkdir tmpbat
     mkdir -p ~/bin
     cd tmpbat
@@ -29,13 +29,19 @@ fi
 
 echo -n "Clone ssh keys? [Y/n]"
 read answer
-if [ "$answer" == "${answer#[Yy]}" ] ;then
+if [ "$answer" != "${answer#[Yy]}" ] ;then
+    olddir="$(pwd)"
     git clone https://github.com/r0zbot/keys.git && rm -rf keys
     homeshick clone r0zbot/keys
     chmod 600 ~/.ssh/*
     chmod 700 ~/.ssh
     chmod -R u-w ~/.homesick
     chmod -R o-w ~/.homesick
+    homeshick cd keys
+    git remote set-url origin git@github.com:r0zbot/keys.git
+    homeshick cd dotfiles
+    git remote set-url origin git@github.com:r0zbot/dotfiles.git
+    cd "$olddir"
 fi
 
 exec bash
