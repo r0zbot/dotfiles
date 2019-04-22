@@ -43,6 +43,8 @@ elif [[ $(hostname) == "imesec.ime.usp.br" ]]; then
     hostcolor=$bldylw
 elif [[ $(hostname) == "osmc" ]]; then
     hostcolor=$bldpur
+elif [[ $(hostname) == "buster" ]]; then
+    hostcolor=$txtred
 else
     hostcolor=$txtwht
 fi
