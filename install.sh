@@ -1,13 +1,23 @@
 #!/bin/bash
-echo "Cloning homeshick"
-git clone git://github.com/andsens/homeshick.git $HOME/.homesick/repos/homeshick
+
+if [[ ! -f $HOME/.homesick/repos/homeshick/homeshick.sh ]]; then
+    echo "Cloning homeshick"
+    git clone git://github.com/andsens/homeshick.git $HOME/.homesick/repos/homeshick
+fi
 
 echo "Adding homeshick to .bashrc"
+
+mv .bashrc .bashrc-$(date +%Y-%m-%d_%s).bak
+
+touch .bashrc
+
 printf '\nsource "$HOME/.homesick/repos/homeshick/homeshick.sh"' >> $HOME/.bashrc
 
 printf '\nsource "$HOME/.homesick/repos/homeshick/completions/homeshick-completion.bash"' >> $HOME/.bashrc
 
-source ~/.bashrc
+source $HOME/.bashrc
+
+source $HOME/.homesick/repos/homeshick/homeshick.sh
 
 echo "Cloning dotfiles"
 

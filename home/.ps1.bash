@@ -41,7 +41,7 @@ if [[ $(hostname) == "r0zmain" ]]; then
     hostcolor=$txtcyn
 elif [[ $(hostname) == "imesec.ime.usp.br" ]]; then
     hostcolor=$bldylw
-elif [[ $(hostname) == "r0zmain" ]]; then
+elif [[ $(hostname) == "osmc" ]]; then
     hostcolor=$bldpur
 else
     hostcolor=$txtwht
