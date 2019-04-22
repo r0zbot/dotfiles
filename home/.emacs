@@ -47,7 +47,7 @@ With prefix ARG, silently save all file-visiting buffers, then kill."
 ;; (xterm-mouse-mode 1)
 
 ;; Tira o beep beep, i'm a sheep 
-(setq visible-bell 1)
+(setq visible-bell 0)
 
 ;; move linhas pra cima e pra baixo
 (global-set-key (kbd "M-+") 'drag-stuff-down)

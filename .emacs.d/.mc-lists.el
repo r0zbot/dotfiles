@@ -7,5 +7,6 @@
 
 (setq mc/cmds-to-run-once
       '(
+	eval-defun
 	keyboard-escape-quit
 	))
