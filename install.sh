@@ -25,7 +25,7 @@ homeshick clone r0zbot/dotfiles
 
 echo -n "Install bat to ~/bin? [Y/n]"
 read answer
-if [ "$answer" != "${answer#[Yy]}" ] ;then
+if [[ "$answer" != "${answer#[Yy]}" ]] || [[ -z $answer ]] ;then
     mkdir tmpbat
     mkdir -p ~/bin
     cd tmpbat
@@ -39,7 +39,7 @@ fi
 
 echo -n "Clone ssh keys? [Y/n]"
 read answer
-if [ "$answer" != "${answer#[Yy]}" ] ;then
+if [[ "$answer" != "${answer#[Yy]}" ]] || [[ -z $answer ]] ;then
     olddir="$(pwd)"
     git clone https://github.com/r0zbot/keys.git && rm -rf keys
     homeshick clone r0zbot/keys
