@@ -45,7 +45,7 @@ if [[ "$answer" != "${answer#[Yy]}" ]] || [[ -z $answer ]] ;then
     homeshick clone r0zbot/keys
     chmod 600 ~/.ssh/*
     chmod 700 ~/.ssh
-    chmod -R u-w ~/.homesick
+    chmod -R g-w ~/.homesick
     chmod -R o-w ~/.homesick
     homeshick cd keys
     git remote set-url origin git@github.com:r0zbot/keys.git
