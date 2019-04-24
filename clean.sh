@@ -7,8 +7,8 @@ echo Cleaning homeshick files
 rm -rf $HOME/.homesick/
 
 echo Cleaning broken links
-find -L $HOME -name . -o -type d -prune -o -type l -exec rm {} +
-find -L $HOME/.ssh/ -name . -o -type d -prune -o -type l -exec rm {} +
+find -L $HOME -maxdepth 1 -type l -print -delete
+find -L $HOME/.ssh -maxdepth 1 -type l -print -delete
 
 echo Restoring first backup of .bashrc
 mv $(ls .bashrc-*.bak | head -n 1) .bashrc
