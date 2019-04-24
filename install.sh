@@ -29,8 +29,7 @@ if [[ "$answer" != "${answer#[Yy]}" ]] || [[ -z $answer ]] ;then
     mkdir tmpbat
     mkdir -p ~/bin
     cd tmpbat
-    curl -O https://github.com/sharkdp/bat/releases/download/v0.10.0/bat-v0.10.0-x86_64-unknown-linux-gnu.tar.gz
-    tar xzf bat-v0.10.0-x86_64-unknown-linux-gnu.tar.gz
+    curl -L -k https://github.com/sharkdp/bat/releases/download/v0.10.0/bat-v0.10.0-x86_64-unknown-linux-gnu.tar.gz | tar xz
     mv bat-v0.10.0-x86_64-unknown-linux-gnu/bat ~/bin
     cd ..
     rm -rf tmpbat
