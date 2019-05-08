@@ -19,6 +19,7 @@ HISTSIZE=10000
 HISTFILESIZE=20000
 
 PATH=$PATH:~/bin
+PATH=$PATH:~/.gem/ruby/2.6.0/bin
 
 export EDITOR=emacs
 
@@ -38,7 +39,16 @@ fzfcmd(){
     fi
 }
 
+kzf(){
+    file="$(fzf -m --preview 'bat --color=always {}')"
+    if [[ "$file"  ]]; then
+        kate "$file" &
+    fi
+}
+
 bind '"\C-F": "fzfcmd\C-m"'
+
+bind '"\C-K": "kzf\C-m"'
 
 commit(){
 

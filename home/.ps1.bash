@@ -45,6 +45,8 @@ elif [[ $(hostname) == "osmc" ]]; then
     hostcolor=$bldpur
 elif [[ $(hostname) == "buster" ]]; then
     hostcolor=$txtred
+elif [[ $(hostname) == "r0znot" ]]; then
+    hostcolor=$txtylw
 else
     hostcolor=$txtwht
 fi
