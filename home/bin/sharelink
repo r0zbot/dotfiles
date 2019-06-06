@@ -1,0 +1,63 @@
+#!/bin/bash
+
+urlencode() {
+    # https://gist.github.com/cdown/1163649
+    # urlencode <string>
+    old_lc_collate=$LC_COLLATE
+    LC_COLLATE=C
+    
+    local length="${#1}"
+    for (( i = 0; i < length; i++ )); do
+        local c="${1:i:1}"
+        case $c in
+            [a-zA-Z0-9.~_-]) printf "$c" ;;
+            *) printf '%%%02X' "'$c" ;;
+        esac
+    done
+    
+    LC_COLLATE=$old_lc_collate
+}
+
+urldecode() {
+    # urldecode <string>
+
+    local url_encoded="${1//+/ }"
+    printf '%b' "${url_encoded//%/\\x}"
+}
+
+random_char() {
+if [[ $(($RANDOM % 2)) == 1 ]]; then
+    # Generate letter
+    return $(($RANDOM % 10 + 48))
+else
+    # Generate number
+    return $(($RANDOM % 26 + 97))
+fi
+}
+
+random_link(){
+    for (( i = 0; i < 8; i++ )); do
+        random_char
+        printf \\$(printf '%03o' $?)
+    done
+}
+
+
+if [[ ! -e "$1" ]]; then
+    echo "No such file: $1"
+    exit 1
+fi
+
+webpath=$(random_link)
+filepath="$(realpath $1)"
+filename="$(basename $1)"
+filenameEncoded=$(urlencode "$filename")
+
+fullwebpath=/var/www/html/share/${webpath}_${filename}
+
+ln -s $filepath $fullwebpath
+RESULT=$?
+if [[ $RESULT -eq 0 ]]; then
+    echo Link created! Share: 
+    echo http://home.danielsmartinez.com:9000/share/${webpath}_${filenameEncoded}
+fi
