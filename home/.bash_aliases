@@ -12,7 +12,7 @@ alias cp='cp --reflink=auto'
 
 alias ll='ls -lah'
 alias cls='clear'
-alias catp='$(which cat)'
+alias catp='/bin/cat'
 alias caf='bat $(fzf)'
 alias cat='bat'
 
