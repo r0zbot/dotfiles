@@ -108,7 +108,7 @@ commit(){
         comment="$2"
     fi
     
-    git add . && git commit -m "$comment" && git push
+    git add -A && git commit -m "$comment" && git push
 }
 
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
