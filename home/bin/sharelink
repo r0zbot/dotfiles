@@ -49,15 +49,15 @@ if [[ ! -e "$1" ]]; then
 fi
 
 webpath=$(random_link)
-filepath="$(realpath $1)"
-filename="$(basename $1)"
+filepath="$(realpath "$1")"
+filename="$(basename "$1")"
 filenameEncoded=$(urlencode "$filename")
 
-fullwebpath=/var/www/html/share/${webpath}_${filename}
+fullwebpath="/var/www/html/share/${webpath}_${filename}"
 
-ln -s $filepath $fullwebpath
+ln -s "$filepath" "$fullwebpath"
 RESULT=$?
 if [[ $RESULT -eq 0 ]]; then
     echo Link created! Share: 
-    echo http://home.danielsmartinez.com:9000/share/${webpath}_${filenameEncoded}
+    echo "http://home.danielsmartinez.com:9000/share/${webpath}_${filenameEncoded}"
 fi
