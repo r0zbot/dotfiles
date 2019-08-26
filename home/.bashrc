@@ -21,7 +21,7 @@ HISTFILESIZE=20000
 PATH=$PATH:~/bin
 PATH=$PATH:~/.gem/ruby/2.6.0/bin
 
-export EDITOR=vim
+export EDITOR=nano
 
 # Source other config files
 [ -f ~/.ps1.bash ] && source ~/.ps1.bash
