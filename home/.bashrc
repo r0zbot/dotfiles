@@ -21,7 +21,7 @@ HISTFILESIZE=20000
 PATH=$PATH:~/bin
 PATH=$PATH:~/.gem/ruby/2.6.0/bin
 
-export EDITOR=emacs
+export EDITOR=vim
 
 # Source other config files
 [ -f ~/.ps1.bash ] && source ~/.ps1.bash
@@ -118,3 +118,5 @@ source "$HOME/.homesick/repos/homeshick/completions/homeshick-completion.bash"
 homeshick refresh --quiet
 
 eval "$(thefuck --alias)"
+
+shopt -s dotglob
