@@ -43,14 +43,16 @@ random_link(){
 }
 
 
-if [[ ! -e "$1" ]]; then
-    echo "No such file: $1"
+webpath=$(random_link)
+linuxpath=`winpath "$1"`
+
+if [[ ! -e "$linuxpath" ]]; then
+    echo "No such file: $linuxpath"
     exit 1
 fi
 
-webpath=$(random_link)
-filepath=`realpath "$1"`
-filename=`basename "$1"`
+filepath=`realpath "$linuxpath"`
+filename=`basename "$linuxpath"`
 filenameEncoded=$(urlencode "$filename")
 
 fullwebpath="/var/www/html/share/${webpath}_${filename}"
