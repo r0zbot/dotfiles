@@ -2,10 +2,12 @@
 
 tmp="$1"
 
-tmp=$(echo "$tmp" | sed 's/\\/\//g')
-tmp=$(echo "$tmp" | sed 's/Z:/\/mnt\/media/g')
-tmp=$(echo "$tmp" | sed 's/D:/\/mnt\/media\/Daniel/g')
-tmp=$(echo "$tmp" | sed 's/E:/\/mnt\/media\/Daniel\/E/g')
-tmp=$(echo "$tmp" | sed 's/I:/\/mnt\/media\/Daniel\/I/g')
+if [[ $tmp =~ ^[a-zA-Z]:.* ]]; then
+    tmp=$(echo "$tmp" | sed 's/\\/\//g')
+    tmp=$(echo "$tmp" | sed 's/Z:/\/mnt\/media/g')
+    tmp=$(echo "$tmp" | sed 's/D:/\/mnt\/media\/Daniel/g')
+    tmp=$(echo "$tmp" | sed 's/E:/\/mnt\/media\/Daniel\/E/g')
+    tmp=$(echo "$tmp" | sed 's/I:/\/mnt\/media\/Daniel\/I/g')
+fi
 
 echo $tmp

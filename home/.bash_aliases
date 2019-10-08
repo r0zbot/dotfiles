@@ -39,3 +39,7 @@ function extract()      # Handy Extract Program
         echo "'$1' is not a valid file!"
     fi
 }
+
+function cd(){
+    builtin cd "$(winpath "$1")"
+}
