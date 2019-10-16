@@ -17,6 +17,8 @@ esac
 HISTCONTROL=ignoreboth
 HISTSIZE=10000
 HISTFILESIZE=20000
+PYTHONIOENCODING=utf-8
+export PYTHONIOENCODING
 
 PATH=$PATH:~/bin
 PATH=$PATH:~/.gem/ruby/2.6.0/bin
@@ -117,6 +119,11 @@ source "$HOME/.homesick/repos/homeshick/completions/homeshick-completion.bash"
 
 homeshick refresh --quiet
 
-eval "$(thefuck --alias)"
+if [[ $OS="Windows_NT" ]]; then
+    eval "$(thefuck --alias | dos2unix)"
+    export CYGWIN=winsymlinks:nativestrict
+else
+    eval "$(thefuck --alias)"
+fi
 
 shopt -s dotglob
