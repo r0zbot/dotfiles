@@ -119,7 +119,7 @@ source "$HOME/.homesick/repos/homeshick/completions/homeshick-completion.bash"
 
 homeshick refresh --quiet
 
-if [[ $OS="Windows_NT" ]]; then
+if [[ $OS = "Windows_NT" ]]; then
     eval "$(thefuck --alias | dos2unix)"
     export CYGWIN=winsymlinks:nativestrict
 else
