@@ -9,6 +9,7 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 alias cp='cp --reflink=auto'
+alias please='sudo !!'
 
 alias ll='ls -lah'
 alias cls='clear'
