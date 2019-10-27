@@ -44,6 +44,6 @@ function cd(){
     if [[ $1 =~ ^[a-zA-Z]:.* ]]; then
         builtin cd "$(winpath "$1")"
     else
-        builtin cd $@
+        builtin cd "$@"
     fi
 }
