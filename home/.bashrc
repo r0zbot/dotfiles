@@ -122,6 +122,7 @@ homeshick refresh --quiet
 if [[ $OS = "Windows_NT" ]]; then
     eval "$(thefuck --alias | dos2unix)"
     export CYGWIN=winsymlinks:nativestrict
+    export FZF_DEFAULT_OPTS="--reverse --border --inline-info"
 else
     eval "$(thefuck --alias)"
 fi
