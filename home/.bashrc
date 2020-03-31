@@ -119,12 +119,13 @@ source "$HOME/.homesick/repos/homeshick/completions/homeshick-completion.bash"
 
 homeshick refresh --quiet
 
-if [[ $OS = "Windows_NT" ]]; then
-    eval "$(thefuck --alias | dos2unix)"
-    export CYGWIN=winsymlinks:nativestrict
-    export FZF_DEFAULT_OPTS="--reverse --border --inline-info"
-else
-    eval "$(thefuck --alias)"
-fi
+# fuck thefuck
+#if [[ $OS = "Windows_NT" ]]; then
+#    eval "$(thefuck --alias | dos2unix)"
+#    export CYGWIN=winsymlinks:nativestrict
+#    export FZF_DEFAULT_OPTS="--reverse --border --inline-info"
+#else
+#    eval "$(thefuck --alias)"
+#fi
 
 shopt -s dotglob
