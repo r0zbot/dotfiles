@@ -9,6 +9,7 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 alias cp='cp --reflink=auto'
+alias please='sudo !!'
 
 alias ll='ls -lah'
 alias cls='clear'
@@ -46,4 +47,28 @@ function cd(){
     else
         builtin cd "$@"
     fi
+}
+
+commit(){
+
+    comment="$1"
+    if [[ $1 == "-m" ]]; then
+        comment="$2"
+    fi
+    
+    git add -A && git commit -m "$comment" && git push
+}
+
+function pullrequest(){
+    set -e
+    if [[ "$(git branch)" == "* master" ]]; then
+        read -p "You are on master. Enter name for a new branch: " newbranch
+        git checkout -b "$newbranch"
+    fi
+
+    comment="$1"
+    if [[ $1 == "-m" ]]; then
+        comment="$2"
+    fi
+    git add -A && git commit -m "$comment" && gh pr create --fill
 }
