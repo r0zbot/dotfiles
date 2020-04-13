@@ -49,26 +49,24 @@ function cd(){
     fi
 }
 
-commit(){
-
-    comment="$1"
-    if [[ $1 == "-m" ]]; then
-        comment="$2"
-    fi
-    
-    git add -A && git commit -m "$comment" && git push
-}
-
 function pullrequest(){
-    set -e
-    if [[ "$(git branch)" == "* master" ]]; then
+    was_on_master="false"
+    if [[ "$(git branch | grep '*')" == "* master" ]]; then
         read -p "You are on master. Enter name for a new branch: " newbranch
-        git checkout -b "$newbranch"
+        git checkout -b "$newbranch"  || return
+        was_on_master="true"
     fi
 
     comment="$1"
     if [[ $1 == "-m" ]]; then
         comment="$2"
     fi
-    git add -A && git commit -m "$comment" && gh pr create --fill
+
+    git add -A && git commit -m "$comment" && gh pr create --fill || return
+
+    if [[ "$was_on_master" == "true" ]]; then
+        git checkout master || return
+        git pull || return
+        
+    fi
 }
