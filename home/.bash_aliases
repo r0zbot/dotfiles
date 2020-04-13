@@ -67,5 +67,6 @@ function pullrequest(){
     if [[ "$was_on_master" == "true" ]]; then
         git checkout master || return
         git pull || return
+        
     fi
 }
