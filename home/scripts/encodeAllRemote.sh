@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# OBS: o arquivo de hosts.txt precisa ter EXATAMENTE 1 linha branca no final, senao coisas dao errado
+
 shopt -s extglob
 set -o pipefail
 
@@ -44,7 +46,7 @@ for i in {0..2}; do
         host="$(head -n 1 available_hosts)"
 
         touch "$file.processing" &&
-            set -o pipefail && cat "$file" | ssh "$host" "ffmpeg -i - -map 0 -c copy -c:v libx265 -crf 26 -preset slow -c:a libopus -b:a 80K -vbr on -compression_level 10 -af aformat=channel_layouts=\"7.1|5.1|stereo\" -ac 2 -f matroska -" > "$output_file" &&
+            set -o pipefail && cat "$file" | ssh "$host" "ffmpeg -i - -map 0 -c copy -c:v libx265 -pix_fmt yuv420p10le -crf 32 -preset veryslow -c:a libopus -b:a 80K -vbr on -compression_level 10 -af aformat=channel_layouts=\"7.1|5.1|stereo\" -ac 2 -f matroska -" > "$output_file" &&
             touch "$file.finished" &&
             rm -f "$file.error" &&
             rm -f "$file.processing" &&
