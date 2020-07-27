@@ -5,10 +5,14 @@ if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
 
+export PYTHONIOENCODING=utf-8
 
-# If not running interactively, don't do anything
+PATH=$PATH:~/bin
+PATH=$PATH:~/.gem/ruby/2.6.0/bin
+
+# If not running interactively, don't do anything below
 case $- in
-    *i*) ;;
+    *i*) ;; 
       *) return;;
 esac
 
@@ -17,11 +21,6 @@ esac
 HISTCONTROL=ignoreboth
 HISTSIZE=10000
 HISTFILESIZE=20000
-PYTHONIOENCODING=utf-8
-export PYTHONIOENCODING
-
-PATH=$PATH:~/bin
-PATH=$PATH:~/.gem/ruby/2.6.0/bin
 
 export EDITOR=nano
 
@@ -31,87 +30,8 @@ export EDITOR=nano
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 [ -f /etc/profile.d/bash_completion.sh ] && source /etc/profile.d/bash_completion.sh
 
-export FZF_DEFAULT_COMMAND="find . -type f ! -path '*.homesick/repos/homeshick*' ! -path '*.themes*' ! -path '*.cinnamon*' ! -path '*.cache*' ! -path '*.git/*'"
+export FZF_DEFAULT_COMMAND="find . -type f ! -path '*.homesick/repos/homeshick*' ! -path '*.themes*' ! -path '*.cinnamon*' ! -path '*.cache*' ! -path '*.git/*' ! -path '*.cargo/*' ! -path '*.vscode-server/*' ! -path '*.emacs.d/*'"
 export FZF_DEFAULT_OPTS="--height 55% --reverse --border --inline-info"
-
-fzfcmd(){
-    file="$(fzf -m --preview 'bat --color=always {}')"
-    if [[ "$file"  ]]; then
-        rsub "$file"
-    fi
-}
-
-#
-# Defines transfer alias and provides easy command line file and folder sharing.
-#
-# Authors:
-#   Remco Verhoef <remco@dutchcoders.io>
-#
-
-curl --version 2>&1 > /dev/null
-if [ $? -ne 0 ]; then
-  echo "Could not find curl."
-  return 1
-fi
-
-transfer() { 
-    if [ $# -eq 0 ]; 
-    then 
-        echo "No arguments specified. Usage:echo transfer /tmp/test.md  or cat /tmp/test.md | transfer test.md"
-        return 1
-    fi
-
-    tmpfile=$( mktemp -t transferXXX )
-    file=$1
-
-    if tty -s; 
-    then 
-        basefile=$(basename "$file" | sed -e 's/[^a-zA-Z0-9._-]/-/g') 
-
-        if [ ! -e $file ];
-        then
-            echo "File $file doesn't exists."
-            return 1
-        fi
-        
-        if [ -d $file ];
-        then
-            zipfile=$( mktemp -t transferXXX.zip )
-            cd $(dirname $file) && zip -r -q - $(basename $file) >> $zipfile
-            curl --progress-bar --upload-file "$zipfile" "https://transfer.sh/$basefile.zip" >> $tmpfile
-            rm -f $zipfile
-        else
-            curl --progress-bar --upload-file "$file" "https://transfer.sh/$basefile" >> $tmpfile
-        fi
-    else 
-        curl --progress-bar --upload-file "-" "https://transfer.sh/$file" >> $tmpfile
-    fi
-   
-    cat $tmpfile
-    rm -f $tmpfile
-}
-
-
-kzf(){
-    file="$(fzf -m --preview 'bat --color=always {}')"
-    if [[ "$file"  ]]; then
-        kate "$file" &
-    fi
-}
-
-bind '"\C-F": "fzfcmd\C-m"'
-
-bind '"\C-K": "kzf\C-m"'
-
-commit(){
-
-    comment="$1"
-    if [[ $1 == "-m" ]]; then
-        comment="$2"
-    fi
-    
-    git add -A && git commit -m "$comment" && git push
-}
 
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 
