@@ -141,6 +141,10 @@ kzf(){
     fi
 }
 
+function diff(){
+    diff -u $@ | delta
+}
+
 
 bind '"\C-F": "fzfcmd\C-m"'
 bind '"\C-K": "kzf\C-m"'
