@@ -142,7 +142,7 @@ kzf(){
 }
 
 
-bind '"\C-F": "fzfcmd\C-m"'
+bind '"\C-P": "fzfcmd\C-m"'
 bind '"\C-K": "kzf\C-m"'
 
 

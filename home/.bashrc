@@ -41,7 +41,7 @@ homeshick refresh --quiet
 
 shopt -s dotglob
 
-
+source "$HOME/.bash_plugins/forgit.plugin.bash"
 
 # Sensible Bash - An attempt at saner Bash defaults
 # Maintainer: mrzool <http://mrzool.cc>
