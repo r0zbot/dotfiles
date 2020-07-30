@@ -1,0 +1,6 @@
+{
+    "clipboard": "terminal",
+    "diffgutter": true,
+    "savecursor": true,
+    "saveundo": true
+}

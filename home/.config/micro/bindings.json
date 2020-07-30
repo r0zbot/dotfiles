@@ -1,0 +1,15 @@
+{
+    "Alt-/": "lua:comment.comment",
+    "Alt-a": "lua:snippets.Accept",
+    "Alt-d": "lua:snippets.Cancel",
+    "Alt-s": "lua:snippets.Insert",
+    "Alt-w": "lua:snippets.Next",
+    "Ctrl-d": "SpawnMultiCursor",
+    "Ctrl-o": "lua:filemanager.toggle_tree",
+    "Ctrl-p": "CommandMode",
+    "Ctrl-u": "RemoveMultiCursor",
+    "Ctrl-w": "Quit",
+    "CtrlUnderscore": "lua:comment.comment",
+    "Esc": "Escape|RemoveAllMultiCursors",
+    "F5": "lua:wc.wordCount",
+}
