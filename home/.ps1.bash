@@ -51,5 +51,20 @@ else
     hostcolor=$txtwht
 fi
 
-export PS1="[\[$UCCOLOR\]\u\[$bldwht\]@\[$hostcolor\]\h\[$bldwht\] \[$bldblu\]\w\[$bldwht\]]\[$bldwht\]
-\\$\[$txtwht\] "
+if [[ -e /usr/lib/git-core/git-sh-prompt ]]; then
+    export GIT_PS1_SHOWDIRTYSTATE=true
+    # export GIT_PS1_SHOWUPSTREAM="true"
+    export GIT_PS1_SHOWCOLORHINTS=true
+    source /usr/lib/git-core/git-sh-prompt
+    PROMPT_COMMAND="history -a && __git_ps1 '[\[$UCCOLOR\]\u\[$bldwht\]@\[$hostcolor\]\h\[$bldwht\] \[$bldblu\]\w\[$bldwht\]]\[$bldwht\]' '
+\\$\[$txtwht\] '  ' (%s)'"
+else
+    export PS1="\$(__git_ps1 '(%s) ')[\[$UCCOLOR\]\u\[$bldwht\]@\[$hostcolor\]\h\[$bldwht\] \[$bldblu\]\w\[$bldwht\]]\[$bldwht\]
+    \\$\[$txtwht\] "
+    
+fi
+
+
+
+# set ps1 indirectly, using __git_ps1
+
