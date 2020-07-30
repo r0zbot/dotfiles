@@ -22,6 +22,7 @@ export PYTHONIOENCODING
 
 PATH=$PATH:~/bin
 PATH=$PATH:~/.gem/ruby/2.6.0/bin
+PATH=$PATH:~/go/bin
 
 export EDITOR=nano
 
