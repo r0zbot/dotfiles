@@ -2,7 +2,11 @@
 
 tmp="$1"
 
+
 if [[ $tmp =~ ^[a-zA-Z]:.* ]]; then
+    if [ -n "$WSL_DISTRO_NAME" ]; then
+        tmp=$(echo "$tmp" | sed 's/C:/\/mnt\/c/g')
+    fi
     tmp=$(echo "$tmp" | sed 's/\\/\//g')
     tmp=$(echo "$tmp" | sed 's/Z:/\/mnt\/media/g')
     tmp=$(echo "$tmp" | sed 's/D:/\/mnt\/media\/Daniel/g')

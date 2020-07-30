@@ -7,3 +7,15 @@
 	default = matching
 [credential]
 	helper = cache
+[delta]
+	syntax-theme = Monokai Extended 
+	line-numbers = true
+	side-by-side = true
+	hunk-header-style = syntax
+	# hunk-header-style = omit
+	commit-style = bold yellow
+	file-style = bright-yellow
+[core]
+    pager = delta  --24-bit-color always
+[interactive]
+    diffFilter = delta --color-only
