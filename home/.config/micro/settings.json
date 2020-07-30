@@ -1,6 +1,7 @@
 {
     "clipboard": "terminal",
     "diffgutter": true,
+    "ignorecase": true,
     "savecursor": true,
     "saveundo": true
 }

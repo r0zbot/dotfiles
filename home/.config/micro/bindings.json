@@ -1,7 +1,7 @@
 {
     "Alt-/": "lua:comment.comment",
     "Alt-a": "lua:snippets.Accept",
-    "Alt-d": "lua:snippets.Cancel",
+    "Alt-d": "DuplicateLine",
     "Alt-s": "lua:snippets.Insert",
     "Alt-w": "lua:snippets.Next",
     "Ctrl-d": "SpawnMultiCursor",
@@ -9,6 +9,8 @@
     "Ctrl-p": "CommandMode",
     "Ctrl-u": "RemoveMultiCursor",
     "Ctrl-w": "Quit",
+    "Ctrl-,": "PreviousTab",
+    "Ctrl-.": "NextTab",
     "CtrlUnderscore": "lua:comment.comment",
     "Esc": "Escape|RemoveAllMultiCursors",
     "F5": "lua:wc.wordCount",

@@ -22,7 +22,7 @@ HISTCONTROL=ignoreboth
 HISTSIZE=400000
 HISTFILESIZE=800000
 
-export EDITOR=nano
+export EDITOR=micro
 
 # Source other config files
 [ -f ~/.bash_aliases ] && source ~/.bash_aliases
