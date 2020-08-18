@@ -1,0 +1,34 @@
+#!/bin/bash
+
+set -e
+
+bugueira="/mnt/bugueira"
+bigboy="/mnt/media"
+bigboy_source="/mnt/btrfs_pool/media"
+
+orig="$(realpath "$1")"
+
+subpath_orig="${orig##$bigboy}"
+
+
+
+if [ "$subpath_orig" == "$orig" ]; then #se eh igual, o comeco do path eh diferente, entao da erro e n faz nada
+    echo "error: '$orig' is not a subpath of '$bigboy'"
+    exit 1
+fi
+
+if [ -e "$orig" ]; then
+    mkdir -p "$(dirname "$bugueira$subpath_orig")"
+else
+    echo "error: '$orig' not found"
+fi
+
+if [ "$2" = "undo" ]; then
+    rsync -aHAtv --remove-source-files "$bugueira$subpath_orig" "$bigboy_source$subpath_orig"
+else
+    rsync -aHAtv --remove-source-files "$bigboy_source$subpath_orig" "$bugueira$subpath_orig"
+fi
+
+
+
+
