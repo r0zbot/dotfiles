@@ -31,7 +31,7 @@ if [ "$2" = "undo" ]; then
     rsync -aHAEXtv --remove-source-files  "$bugueira$subpath_orig" "$(dirname "$bigboy_source$subpath_orig")/"
     find "$bugueira$subpath_orig" -type d -empty -delete
 else
-    rsync -aHAEXtv --remove-source-files  "$bigboy_source$subpath_orig" "$(dirname "$bugueira$subpath_orig")/"
+    rsync -aHAEXtv --progress --remove-source-files  "$bigboy_source$subpath_orig" "$(dirname "$bugueira$subpath_orig")/"
     find "$bigboy_source$subpath_orig" -type d -empty -delete
 fi
 
