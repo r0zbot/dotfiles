@@ -2,13 +2,13 @@
 
 set -e
 
-# bugueira="/mnt/bugueira/media"
-# both="/mnt/media"
-# bigboy_source="/mnt/btrfs_pool/media"
+bugueira="/mnt/bugueira/media"
+both="/mnt/media"
+bigboy_source="/mnt/btrfs_pool/media"
 
-bugueira="/mnt/btrfs_pool/mergerfsteste/bugueira"
-both="/mnt/btrfs_pool/mergerfsteste/both"
-bigboy_source="/mnt/btrfs_pool/mergerfsteste/bigboy"
+# bugueira="/mnt/btrfs_pool/mergerfsteste/bugueira"
+# both="/mnt/btrfs_pool/mergerfsteste/both"
+# bigboy_source="/mnt/btrfs_pool/mergerfsteste/bigboy"
 
 orig="$(realpath "$1")"
 
