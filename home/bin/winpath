@@ -9,6 +9,7 @@ if [[ $tmp =~ ^[a-zA-Z]:.* ]]; then
     fi
     tmp=$(echo "$tmp" | sed 's/\\/\//g')
     tmp=$(echo "$tmp" | sed 's/Z:/\/mnt\/media/g')
+    tmp=$(echo "$tmp" | sed 's/B:/\/mnt\/bugueira/g')
     tmp=$(echo "$tmp" | sed 's/D:/\/mnt\/media\/Daniel/g')
     tmp=$(echo "$tmp" | sed 's/E:/\/mnt\/media\/Daniel\/E/g')
     tmp=$(echo "$tmp" | sed 's/I:/\/mnt\/media\/Daniel\/I/g')
