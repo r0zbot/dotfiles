@@ -1,5 +1,5 @@
 {
-    "clipboard": "terminal",
+    "clipboard": "internal",
     "diffgutter": true,
     "ignorecase": true,
     "savecursor": true,
