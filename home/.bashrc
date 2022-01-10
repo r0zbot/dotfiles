@@ -11,9 +11,11 @@ PATH=$PATH:~/bin
 PATH=$PATH:~/.gem/ruby/2.6.0/bin
 PATH=$PATH:~/go/bin
 
+[ -f ~/.bashrc_local ] && . ~/.bashrc_local
+
 # If not running interactively, don't do anything below
 case $- in
-    *i*) ;; 
+    *i*) ;;
       *) return;;
 esac
 
@@ -138,3 +140,7 @@ CDPATH="."
 shopt -s cdable_vars
 
 export media="/mnt/media"
+
+# [ -x "$(command -v direnv)" ] && eval "$(direnv hook bash)"
+[ -f ~/.bashrc_local ] && . ~/.bashrc_local
+

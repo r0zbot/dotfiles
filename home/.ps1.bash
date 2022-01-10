@@ -51,13 +51,15 @@ else
     hostcolor=$txtwht
 fi
 
+[ -x "$(command -v kubectx)" ] && export ctx_ps1=" |\[$bldylw\]\$(kubens -c)\[$bldwht\]@\[$bldylw\]\$(kubectx -c)\[$bldwht\]|"
+
 #if [[ -e /usr/lib/git-core/git-sh-prompt ]]; then
     export GIT_PS1_SHOWDIRTYSTATE=true
     # export GIT_PS1_SHOWUPSTREAM="true"
     export GIT_PS1_SHOWCOLORHINTS=true
     #source /usr/lib/git-core/git-sh-prompt
     source ~/.bash_git
-    PROMPT_COMMAND="history -a && __git_ps1 '[\[$UCCOLOR\]\u\[$bldwht\]@\[$hostcolor\]\h\[$bldwht\] \[$bldblu\]\w\[$bldwht\]]\[$bldwht\]' '
+    PROMPT_COMMAND="history -a && __git_ps1 '[\[$UCCOLOR\]\u\[$bldwht\]@\[$hostcolor\]\h\[$bldwht\] \[$bldblu\]\w\[$bldwht\]]$ctx_ps1\[$bldwht\]' '
 \\$\[$txtwht\] '  ' (%s)'"
 #else
 #    export PS1="[\[$UCCOLOR\]\u\[$bldwht\]@\[$hostcolor\]\h\[$bldwht\] \[$bldblu\]\w\[$bldwht\]]\[$bldwht\]

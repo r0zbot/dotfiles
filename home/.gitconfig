@@ -1,8 +1,9 @@
 [color]
 	ui = auto
 [user]
-	email = r0zbot@users.noreply.github.com
+	email = git@danielsmartinez.com
 	name = r0zbot
+	signingkey = 1B89F6B9B2413610
 [push]
 	default = matching
 [credential]
@@ -19,3 +20,7 @@
     pager = delta  --24-bit-color always
 [interactive]
     diffFilter = delta --color-only
+[init]
+	defaultBranch = master
+[commit]
+	gpgsign = true

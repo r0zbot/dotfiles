@@ -145,4 +145,7 @@ kzf(){
 bind '"\C-P": "fzfcmd\C-m"'
 bind '"\C-K": "kzf\C-m"'
 
+alias k=kubectl
+complete -F __start_kubectl k
 
+source <(kubectl completion bash)
