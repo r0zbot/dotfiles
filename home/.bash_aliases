@@ -75,6 +75,12 @@ function pullrequest(){
     fi
 }
 
+function seecert () {   nslookup $1
+  (openssl s_client -showcerts -servername $1 -connect $1:443 <<< "Q" | openssl x509 -text | grep -iA2 "Validity");
+}
+
+
+
 transfer() { 
     curl --version 2>&1 > /dev/null
     if [ $? -ne 0 ]; then
